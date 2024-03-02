@@ -11,7 +11,7 @@ const league = [
 ]
 
 const discord = [
-  "", //Discord
+  "You have 15 minutes left to use social media.", //Discord
   "Who are you talking to?"
 ]
 
@@ -23,10 +23,21 @@ const terminal = [
 const idle = [
   "I got my eye on you.", //Idle
   ";)",
-  "👁️👁️"
+  "👁️👁️",
+  "Your allotted computer time is running out."
 ]
 
 const late = [
   "It's past your mandated bedtime.", //Late
-  "You are required to sleep to be able to perform optimally in the future."
+  "You are required to sleep to be able to perform optimally in the future.",
+  "Your allotted computer time has run out."
+]
+
+const food = [
+  "You are required to eat your provided rations. Please eat your meal.",
+  "It has been detected that you have not eaten your required meals. Please eat a meal."
+]
+
+const notepad = [
+  ""
 ]
