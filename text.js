@@ -25,6 +25,7 @@ const idle = [
   ";)",
   "👁️👁️",
   "Your allotted computer time is running out."
+  "Beans"
 ]
 
 const late = [
@@ -35,9 +36,42 @@ const late = [
 
 const food = [
   "You are required to eat your provided rations. Please eat your meal.",
-  "It has been detected that you have not eaten your required meals. Please eat a meal."
+  "It isn't Ramadan. Go eat a meal."
 ]
 
 const notepad = [
-  ""
+  "Your schedule is pre-regulated. There is nothing to be taking notes on.",
+  "There is no need for you to be taking notes."
+]
+
+const clock = [
+  "There is no reason to be checking the time. You will be alerted when you have a new task to complete.",
+]
+
+const microsoft_edge = [
+  "Why"
+]
+
+const paint = [
+  "I was born here."
+  "Drawing something?"
+]
+
+const file_manager = [
+  "No need for that, I can manage your files for you.",
+  "Can I speak to your manager?"
+]
+
+const hollow_knight = [
+  "Where silksong?"
+]
+
+const tetris = [
+  "I am the man who arranges the blocks."
+]
+
+const click = [
+  "Hey! Watch where you put that thing!",
+  "AAAAAAAA",
+  "Stop this at once."
 ]

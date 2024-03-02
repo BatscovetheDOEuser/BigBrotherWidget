@@ -1,4 +1,5 @@
 let dialougue =  require("Text.js");
+
 let textQueue = [];
 
 function retText() {
