@@ -1,4 +1,8 @@
-const {app, BrowserWindow, screen } = require("electron")
+const {app, BrowserWindow, screen, } = require("electron");
+const os = require(
+    "os"
+);
+const {exec} = require("child_process");
 
 const createWindow = () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
@@ -24,4 +28,32 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
     createWindow();
+    // console.log(os.platform());
+    // shutdown();
 });
+
+function shutdown() {
+    let command;
+    if (os.platform() === 'win32') {
+      command = 'shutdown /s /t 0';
+    } else if (os.platform() === 'darwin') {
+      command = 'sudo shutdown -h now';
+    } else if (os.platform() === 'linux') {
+      command = 'sudo shutdown -h now';
+    } else {
+      console.error('Unsupported platform');
+      return;
+    }
+  
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing command: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    });
+  }

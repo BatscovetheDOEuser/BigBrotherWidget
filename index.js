@@ -6,6 +6,5 @@ function speak(words){
 
 speak("we ball");
 
-setTimeout(() => {
-    speak("balling"), 10000
-})
+
+
