@@ -12,7 +12,7 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: windowHeight,
         height: windowHeight,
-        // transparent: true,
+        transparent: true,
         frame: false,
         resizable:false,
         x: width,
