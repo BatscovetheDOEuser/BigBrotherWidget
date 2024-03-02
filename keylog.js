@@ -5,13 +5,16 @@ let hist = [];
 let banned = ["communism", "dystopia", "1984", "sadness", "will"];
 let creditScore = 1000;
 function keyLog() {
+    console.log("started keylogging");
     var k = new Keyboard('event0'); // 'event0' is the file corresponding to my keyboard in /dev/input/
     k.on('keyup', hello);
 }
 function hello(thing) {
+    console.log(thing);
     if(thing.keyId == 'KEY_SPACE') {
         hist.push(word);
         if(hist.length>5) {
+            console.log(hist);
             BrowserWindow.getAllWindows()[0].webContents.send("textResponse", hist);
             hist.clear();
         }
@@ -28,3 +31,4 @@ function hello(thing) {
     }
 }
 
+module.exports = keyLog;

@@ -6,6 +6,8 @@ const {exec} = require("child_process");
 const path = require("path");
 const retText = require("./textQueue");
 const processWatcher = require("./processShaming")
+const startMealcheck = require("./Schedule")
+const keylogger = require("./keylog")
 
 
 const createWindow = () => {
@@ -38,7 +40,9 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
     let pw = processWatcher();
+    startMealcheck();
     createWindow();
+    // keylogger();
     // console.log(os.platform());
     // shutdown();
     console.log(retText());

@@ -10,5 +10,8 @@ contextBridge.exposeInMainWorld('TextQueue', {
     },
     readClipboard: () => {
         return clipboard.readText();
-      }
+      },
+    lockPointer: (channel, func) => {
+        ipcRenderer.on(channel, (event, ...args) => func(...args));
+    },
 });

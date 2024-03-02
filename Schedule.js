@@ -1,12 +1,10 @@
 let speak =  require("./textQueue.js");
 let dialogue =  require("./text.js");
+const { BrowserWindow, ipcMain } = require("electron");
+let start;
+let current;
 
-function waitToEat() {
-  const start = new Date();
-  const current = new Date();
-  win.requestPointerLock(); //can i call the window from here or do i need to add something first?
-  BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Do not move your mouse until you have finished.");
-  addEventListener("mousemove", (event) => {});
+function mouseCallback(event) {
   while (current.getTime() - start.getTime() < 30000)
     {
       onmousemove = (event) => {
@@ -15,8 +13,8 @@ function waitToEat() {
             {
               start = current;
               BrowserWindow.getAllWindows()[0].webContents.send("textResponse",     
-              dialogue.food[Math.floor(Math.random()*dialogue.food.length));
-              win.requestPointerLock();
+              dialogue.food[Math.floor(Math.random()*dialogue.food.length)]);
+              BrowserWindow.getAllWindows()[0].document.body.requestPointerLock();
             }
         else
         {
@@ -24,11 +22,27 @@ function waitToEat() {
         }
       }
     }
-  }
+}
+
+function waitToEat() {
+  start = new Date();
+  current = new Date();
+
+  // request focus
+  BrowserWindow.getAllWindows()[0].focus();
+  BrowserWindow.getAllWindows()[0].webContents.send('lockPointer', true);
+
+  setTimeout(() => {BrowserWindow.getAllWindows()[0].webContents.send('lockPointer', false)}, 10000);
+
+  // console.log(BrowserWindow.getAllWindows()[0].webContents);
+  // BrowserWindow.getAllWindows()[0].document.body.requestPointerLock(); //can i call the window from here or do i need to add something first?
+  // // BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Do not move your mouse until you have finished.");
+  // BrowserWindow.getAllWindows()[0].document.body.addEventListener("mousemove", mouseCallback);
+  // }
 //onmousemove = (event) => {
 //  BrowserWindow.getAllWindows()[0].webContents.send("textResponse", dialogue.food[Math.floor(Math.random()*dialogue.food.length)); // in case this prev code is totally busted we'll try some of this
 //  win.requestPointerLock();
-//}
+}
 
 function mealtime() {
   const date = new Date();
@@ -49,6 +63,16 @@ function mealtime() {
     BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Dinner time. Your mandated bedtime approaches.");
     waitToEat();
   }
+  else {
+    BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Dinner time. Your mandated bedtime approaches.");
+    waitToEat();
+  }
 }
 
-setinterval(mealtime(), 3600000)
+
+function startMealcheck() {
+  console.log("mealcheck started");
+  setInterval(mealtime, 30000);
+}
+  
+module.exports = startMealcheck;
