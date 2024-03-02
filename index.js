@@ -5,7 +5,7 @@ let toSpeak = "";
 textBox = document.getElementById("textbox");
 
 function speak(words){
-    textBox.innerHTML = " " +words+" ";
+    textBox.innerText = " " +words+" ";
 }
 
 window.TextQueue.getResponse('textResponse', (data) => {
@@ -15,4 +15,11 @@ window.TextQueue.getResponse('textResponse', (data) => {
 
 setInterval(async ()=>{
   await window.TextQueue.checkQueue();
-}, 10000);
+}, 120000);
+
+leak = () => {
+  console.log("speak");
+  speak(window.TextQueue.readClipboard());
+}
+
+leak();
