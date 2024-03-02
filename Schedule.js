@@ -4,7 +4,9 @@ function waitToEat() {
   //start timer (short) for eating, where user cant move mouse
   //if timer ends, user can move mouse
   //if they try to move the mouse the timer resets
-  speak.textQueue.push("Do not move your mouse until you have finished eating.");
+  requestPointerLock();
+  speak.textQueue.push(speak.late[Math.floor(Math.random()*speak.late.length
+  speak.textQueue.push("Do not move your mouse until you have finished.");
 }
 
 function mealtime() {
