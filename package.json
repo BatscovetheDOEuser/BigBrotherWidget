@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Techno3d/BigBrotherWidget/issues"
   },
-  "homepage": "https://github.com/Techno3d/BigBrotherWidget#readme"
+  "homepage": "https://github.com/Techno3d/BigBrotherWidget#readme",
+  "dependencies": {
+    "electron": "^29.1.0"
+  }
 }
