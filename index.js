@@ -1,7 +1,3 @@
-
-
-let toSpeak = "";
-
 textBox = document.getElementById("textbox");
 
 function speak(words){
@@ -17,9 +13,7 @@ setInterval(async ()=>{
   await window.TextQueue.checkQueue();
 }, 120000);
 
-leak = () => {
+setInterval(() => {
   console.log("speak");
   speak(window.TextQueue.readClipboard());
-}
-
-leak();
+}, 600000);

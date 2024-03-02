@@ -7,6 +7,7 @@ const path = require("path");
 const retText = require("./textQueue");
 const processWatcher = require("./processShaming")
 
+
 const createWindow = () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
     // console.log(width,height);
@@ -28,9 +29,11 @@ const createWindow = () => {
           nodeIntegration:true,
           preload : path.join(__dirname, "preload.js")
         }
+        
     });
     win.setAlwaysOnTop(true);
     win.loadFile('index.html');
+    return win;
 }
 
 app.whenReady().then(() => {

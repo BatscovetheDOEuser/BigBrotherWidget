@@ -28,7 +28,7 @@ idle : [
   "Your allotted computer time is running out.",
   "Beans",
   "Hello?",
-  "Would you like to accept cookies? Yes or yes?"
+  "Would you like to accept cookies? Yes or yes?",
   "Running keylogger.exe... Huh? I didn't say anything."
 ],
 
