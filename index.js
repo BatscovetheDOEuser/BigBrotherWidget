@@ -1,11 +1,18 @@
 
+
+let toSpeak = "";
+
 textBox = document.getElementById("textbox");
 
 function speak(words){
-    textBox.innerHTML = words;
+    textBox.innerHTML = " " +words+" ";
 }
 
-speak("we ball");
+window.TextQueue.getResponse('textResponse', (data) => {
+  speak(data);
+});
 
 
-
+setInterval(async ()=>{
+  await window.TextQueue.checkQueue();
+}, 500);

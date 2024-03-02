@@ -1,6 +1,6 @@
 let processWindows = require("node-process-windows");
-let tQ = require("textQueue.js");
-let t = require("Text.js");
+let tQ = require("./textQueue.js");
+let t = require("./text.js");
 
 function printWindows() {
     var activeProcesses = processWindows.getProcesses(function(err, processes) {
@@ -31,7 +31,7 @@ function processWatcher() {
         let processArr = getWindows;
         for(let i = 0; i < processArr.length; i++) {
             if(processArr[i].toLowerCase().includes("chrome")) {
-                tQ.textQueue.push(t.chrome[Math.floor(Math.random()*t.chrome.length)]));
+                tQ.textQueue.push(t.chrome[Math.floor(Math.random()*t.chrome.length)]);
             }
             if(processArr[i].toLowerCase().includes("discord")) {
                 tQ.textQueue.push(t.discord[Math.floor(Math.random()*t.discord.length)]);

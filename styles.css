@@ -1,0 +1,16 @@
+img {
+    width: 400px;
+    
+}
+#textbox 
+{
+    display: inline;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+}
+div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

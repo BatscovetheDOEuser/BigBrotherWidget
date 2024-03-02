@@ -1,4 +1,4 @@
-let speak =  require("textQueue.js");
+let speak =  require("./textQueue.js");
 
 function waitToEat() {
   //start timer (short) for eating, where user cant move mouse
@@ -7,7 +7,7 @@ function waitToEat() {
   speak.textQueue.push("Do not move your mouse until you have finished eating.");
 }
 
-const mealtime() {
+function mealtime() {
   const date = new Date();
   const hour = date.getHours();
   if (hour == 6) 

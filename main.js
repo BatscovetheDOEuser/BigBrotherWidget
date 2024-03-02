@@ -1,26 +1,31 @@
-const {app, BrowserWindow, screen, } = require("electron");
+const {app, BrowserWindow, screen, ipcMain, } = require("electron");
 const os = require(
     "os"
 );
 const {exec} = require("child_process");
+const path = require("path");
+const retText = require("./textQueue");
 
 const createWindow = () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-    console.log(width,height);
+    // console.log(width,height);
     // Specify the size and position of the window
-    const windowWidth = 600;
-    const windowHeight = 600;
+    const windowWidth = 450;
+    const windowHeight = 500;
     const x = width - windowWidth; // position from the right
     const y = height - windowHeight; // position from the bottom
 
     const win = new BrowserWindow({
         width: windowHeight,
         height: windowHeight,
-        transparent: true,
-        frame: false,
-        resizable:false,
+        // transparent: true,
+        // frame: false,
+        // resizable:false,
         x: width,
         y: height,
+        webPreferences : {
+          preload : path.join(__dirname, "preload.js")
+        }
     });
     win.setAlwaysOnTop(true);
     win.loadFile('index.html');
@@ -30,6 +35,13 @@ app.whenReady().then(() => {
     createWindow();
     // console.log(os.platform());
     // shutdown();
+    console.log(retText());
+    ipcMain.on ('getText',(event, args) => {
+      // console.log("rpc (real)");
+      let text = retText();
+      console.log("text " + text)
+      event.reply('textResponse', text);
+    } )
 });
 
 function shutdown() {
