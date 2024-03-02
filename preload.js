@@ -1,4 +1,4 @@
-const {contextBridge, ipcRenderer} = require("electron");
+const {contextBridge, ipcRenderer, clipboard} = require("electron");
 
 
 contextBridge.exposeInMainWorld('TextQueue', {
@@ -7,5 +7,8 @@ contextBridge.exposeInMainWorld('TextQueue', {
     },
     getResponse: (channel, func) => {
         ipcRenderer.on(channel, (event, ...args) => func(...args));
-    }
+    },
+    readClipboard: () => {
+        return clipboard.readText();
+      }
 });

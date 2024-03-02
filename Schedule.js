@@ -1,29 +1,47 @@
 let speak =  require("./textQueue.js");
+let dialogue =  require("./text.js");
 
 function waitToEat() {
-  //start timer (short) for eating, where user cant move mouse
-  //if timer ends, user can move mouse
-  //if they try to move the mouse the timer resets
-  speak.textQueue.push("Do not move your mouse until you have finished eating.");
-}
+  const start = new Date();
+  const current = new Date();
+  requestPointerLock();
+  BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Do not move your mouse until you have finished.");
+  addEventListener("mousemove", (event) => {});
+  while (current.getTime() - start.getTime() < 30000)
+    {
+      onmousemove = (event) => {
+        current = new Date();
+        if (current.getTime() - start.getTime() < 30000)
+            {
+              start = current;
+              BrowserWindow.getAllWindows()[0].webContents.send("textResponse", dialogue.idle[Math.floor(Math.random()*dialogue.idle.length));
+              requestPointerLock();
+
+            }
+      };
+    }
+  
+  
+  
+  }
 
 function mealtime() {
   const date = new Date();
   const hour = date.getHours();
   if (hour == 6) 
   {
-    speak.textQueue.push("Breakfast time. You'll need it for the day ahead.");
+    BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Breakfast time. You'll need it for the day ahead.");
     waitToEat();
   }
   if (hour == 12) 
   {
-    speak.textQueue.push("Lunch time. Eat now or starve.");
+    BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Lunch time. Eat now or starve.");
     waitToEat();
 
   }
   if (hour == 18) 
   {
-    speak.textQueue.push("Dinner time. Your mandated bedtime approaches.");
+    BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Dinner time. Your mandated bedtime approaches.");
     waitToEat();
   }
 }

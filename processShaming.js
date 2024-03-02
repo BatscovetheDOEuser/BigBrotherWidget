@@ -59,25 +59,7 @@ function processWatcher() {
                 BrowserWindow.getAllWindows()[0].webContents.send("textResponse", t.textbank.terminal[Math.floor(Math.random()*t.terminal.length)]);
             }
          }
-    })
-    // return setInterval(() => {
-    //     let processArr = getWindows();
-    //     // console.log(processArr);
-    //     for(let i = 0; i < processArr.length; i++) {
-    //         if(processArr[i].toLowerCase().includes("chrome")) {
-    //             tQ.textQueue.push(t.textbank.chrome[Math.floor(Math.random()*t.chrome.length)]);
-    //         }
-    //         if(processArr[i].toLowerCase().includes("discord")) {
-    //             tQ.textQueue.push(t.textbank.discord[Math.floor(Math.random()*t.discord.length)]);
-    //         }
-    //         if(processArr[i].toLowerCase().includes("league")) {
-    //             tQ.textQueue.push(t.textbank.league[Math.floor(Math.random()*t.league.length)]);
-    //         }
-    //         if(processArr[i].toLowerCase().includes("power")) {
-    //             tQ.textQueue.push(t.textbank.terminal[Math.floor(Math.random()*t.terminal.length)]);
-    //         }
-    //     }
-    // }, 5000);
+    }, 5000);
 }
 
 module.exports = processWatcher;

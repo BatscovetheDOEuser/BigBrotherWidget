@@ -24,8 +24,12 @@ idle : [
   "I got my eye on you.", //Idle
   ";)",
   "👁️👁️",
+  "How's your day going? Actually, don't answer. I already know.",
   "Your allotted computer time is running out.",
-  "Beans"
+  "Beans",
+  "Hello?",
+  "Would you like to accept cookies? Yes or yes?"
+  "Running keylogger.exe... Huh? I didn't say anything."
 ],
 
 late : [
