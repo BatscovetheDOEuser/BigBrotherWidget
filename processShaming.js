@@ -85,7 +85,7 @@ function processWatcher() {
                 BrowserWindow.getAllWindows()[0].webContents.send("textResponse", t.league[Math.floor(Math.random()*t.league.length)]);
                 hasReacted[2] = true;
             }
-            if(processArr[i].toLowerCase().includes("power") && !hasReacted[3]) {
+            if(processArr[i].toLowerCase().includes("bash") && !hasReacted[3]) {
                 BrowserWindow.getAllWindows()[0].webContents.send("textResponse", t.terminal[Math.floor(Math.random()*t.terminal.length)]);
                 hasReacted[3] = true;
             }
