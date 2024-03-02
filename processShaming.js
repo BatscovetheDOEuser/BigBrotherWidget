@@ -1,4 +1,5 @@
-var processWindows = require("node-process-windows");
+let processWindows = require("node-process-windows");
+let tQ = require("textQueue")
 
 function printWindows() {
     var activeProcesses = processWindows.getProcesses(function(err, processes) {
@@ -30,6 +31,13 @@ function getWindows() {
 function processWatcher() {
     return setInterval(() => {
         let processArr = getWindows;
-
-    }, 1000);
+        for(let i = 0; i < processArr.length; i++) {
+            if(processArr[i].toLowerCase().includes("chrome")) {
+                tQ.textQueue.push("Test 1");
+            }
+            if(processArr[i].toLowerCase().includes("discord")) {
+                tQ.textQueue.push("Discord");
+            }
+        }
+    }, 5000);
 }
