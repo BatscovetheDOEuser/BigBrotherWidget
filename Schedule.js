@@ -4,7 +4,7 @@ let dialogue =  require("./text.js");
 function waitToEat() {
   const start = new Date();
   const current = new Date();
-  requestPointerLock();
+  win.requestPointerLock(); //can i call the window from here or do i need to add something first?
   BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Do not move your mouse until you have finished.");
   addEventListener("mousemove", (event) => {});
   while (current.getTime() - start.getTime() < 30000)
@@ -14,16 +14,21 @@ function waitToEat() {
         if (current.getTime() - start.getTime() < 30000)
             {
               start = current;
-              BrowserWindow.getAllWindows()[0].webContents.send("textResponse", dialogue.idle[Math.floor(Math.random()*dialogue.idle.length));
-              requestPointerLock();
-
+              BrowserWindow.getAllWindows()[0].webContents.send("textResponse",     
+              dialogue.food[Math.floor(Math.random()*dialogue.food.length));
+              win.requestPointerLock();
             }
-      };
+        else
+        {
+           document.removeEventListener("mousemove", moveCallback, false);
+        }
+      }
     }
-  
-  
-  
   }
+//onmousemove = (event) => {
+//  BrowserWindow.getAllWindows()[0].webContents.send("textResponse", dialogue.food[Math.floor(Math.random()*dialogue.food.length)); // in case this prev code is totally busted we'll try some of this
+//  win.requestPointerLock();
+//}
 
 function mealtime() {
   const date = new Date();

@@ -41,6 +41,7 @@ late : [
 food : [
   "You are required to eat your provided rations. Please eat your meal.",
   "It isn't Ramadan. Go eat a meal."
+  "Focus on eating your food. There is no reason to be using the computer right now."
 ],
 
   notepad  : [
