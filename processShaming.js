@@ -32,7 +32,7 @@ function getWindows() {
 function processWatcher() {
     console.log()
     return setInterval(() => {
-        BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "ball");
+        // BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "ball");
     })
     // return setInterval(() => {
     //     let processArr = getWindows();
@@ -53,5 +53,7 @@ function processWatcher() {
     //     }
     // }, 5000);
 }
+
+
 
 module.exports = processWatcher;
