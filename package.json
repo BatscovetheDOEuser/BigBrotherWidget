@@ -16,7 +16,7 @@
     "url": "https://github.com/Techno3d/BigBrotherWidget/issues"
   },
   "homepage": "https://github.com/Techno3d/BigBrotherWidget#readme",
-  "dependencies": {
+  "devDependencies": {
     "electron": "^29.1.0"
   }
 }
