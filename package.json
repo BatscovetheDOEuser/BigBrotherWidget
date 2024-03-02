@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Techno3d/BigBrotherWidget#readme",
   "devDependencies": {
     "electron": "^29.1.0"
+  },
+  "dependencies": {
+    "node-process-windows": "^0.0.2"
   }
 }
