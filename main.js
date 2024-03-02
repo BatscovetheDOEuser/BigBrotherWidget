@@ -5,6 +5,7 @@ const os = require(
 const {exec} = require("child_process");
 const path = require("path");
 const retText = require("./textQueue");
+const processWatcher = require("./processShaming")
 
 const createWindow = () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
@@ -18,12 +19,13 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: windowHeight,
         height: windowHeight,
-        // transparent: true,
-        // frame: false,
-        // resizable:false,
+        transparent: true,
+        frame: false,
+        resizable:false,
         x: width,
         y: height,
         webPreferences : {
+          nodeIntegration:true,
           preload : path.join(__dirname, "preload.js")
         }
     });
@@ -32,6 +34,7 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+    let pw = processWatcher();
     createWindow();
     // console.log(os.platform());
     // shutdown();

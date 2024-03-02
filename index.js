@@ -15,4 +15,4 @@ window.TextQueue.getResponse('textResponse', (data) => {
 
 setInterval(async ()=>{
   await window.TextQueue.checkQueue();
-}, 500);
+}, 10000);
