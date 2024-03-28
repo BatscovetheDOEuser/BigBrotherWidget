@@ -32,7 +32,7 @@ function waitToEat() {
   BrowserWindow.getAllWindows()[0].focus();
   BrowserWindow.getAllWindows()[0].webContents.send('lockPointer', true);
 
-  setTimeout(() => {BrowserWindow.getAllWindows()[0].webContents.send('lockPointer', false)}, 10000);
+  setTimeout(() => {BrowserWindow.getAllWindows()[0].webContents.send('lockPointer', false)}, 20000);
 
   // console.log(BrowserWindow.getAllWindows()[0].webContents);
   // BrowserWindow.getAllWindows()[0].document.body.requestPointerLock(); //can i call the window from here or do i need to add something first?
@@ -58,7 +58,7 @@ function mealtime() {
     waitToEat();
 
   }
-  if (hour == 18) 
+  if (hour == 16) 
   {
     BrowserWindow.getAllWindows()[0].webContents.send("textResponse", "Dinner time. Your mandated bedtime approaches.");
     waitToEat();
@@ -72,7 +72,7 @@ function mealtime() {
 
 function startMealcheck() {
   console.log("mealcheck started");
-  setInterval(mealtime, 30000);
+  setInterval(mealtime, 3000);
 }
   
 module.exports = startMealcheck;
